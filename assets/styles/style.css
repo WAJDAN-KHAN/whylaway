@@ -171,6 +171,48 @@ html{
 color: rgb(252, 58, 140);
 }
 
+
+.cat_bg{
+    background-image: url('../images/rotiv-artic-fLL6q29IccA-unsplash-06ee480a-1920w.webp');
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.dog_bg{
+    background-image: url('../images/anna-dudkova-md2_P9X7t4M-unsplash-1920w.webp');
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.tab-content h1{
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.tab-content p{
+    font-size: 16px;
+}
+
+.tab-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.tab-content ul li{
+    font-size: 16px;
+}
+.tab-content ul li span{
+    font-style: italic;
+}
+
+.tab-label.active {
+    background-color: #f5f5f5;
+}
+.tab-content.hidden {
+    display: none;
+}
+
 @media(max-width:776px){
     .u_1528695426 {
 

@@ -334,6 +334,105 @@
         </div>
     </section>
 
+    <section class="py-[74px]      lg:flex lg:items-center">
+        <div class="px-[15px] container mx-auto">
+            <div class="lg:px-[20px] relative  ">
+                <div class="lg:px-[40px]">
+                    <h2 class="font-bold  text-[24px] md:text-[60px] md:leading-[90px]">
+                        Costs
+                    </h2>
+                    <div class="w-[70px] py-[20px]">
+                        <hr style="border: 2px solid #000;">
+                    </div>
+
+                    <div class="mt-[10px]">
+                        <div class="flex flex-col">
+                            <nav class="flex flex-around flex-row">
+                                <div id="dogTab" class="tab-label text-center  layout-b hover:bg-[#f5f5f5] active"
+                                    style="flex: 1 1 0%;">
+                                    <h4 class="font-bold m-[18px] text-[16px]">Dogs</h4>
+                                </div>
+                                <div id="catTab" class="tab-label text-center bg-[#fff] hover:bg-[#f5f5f5] layout-b"
+                                    style="flex: 1 1 0%;">
+                                    <h4 class="font-bold m-[18px] text-[16px]">Cats</h4>
+                                </div>
+                            </nav>
+                            <div id="dogContent"
+                                class="tab-content layout-b bg-[#f5f5f5] p-[30px] gap-[20px] flex lg:flex-row flex-col">
+                                <div class="md:w-[291px] md:h-[353px] w-full sm:h-[200px] h-[176px] dog_bg"></div>
+                                <aside class="tab-content">
+                                    <h1>Pats, Cuddles and Playtime are FREE!</h1>
+                                    <p>Costs from 1st November 2023</p>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Small Dog Kennel Area (up to 10 kg):</strong></p>
+                                    <ul>
+                                        <li>$22.00-Desexed</li>
+                                        <li>$27.00-Entire</li>
+                                    </ul>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Medium-Large Dog Kennel Area (up to 35 kg):</strong></p>
+                                    <ul>
+                                        <li>$27.00-Desexed</li>
+                                        <li>$37.00-Entire</li>
+                                        <li><span>Small dogs housed in Medium-Large Kennel Area will be charged at
+                                                Medium-Large rates.</span></li>
+                                    </ul>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Females in season (on heat)</strong></p>
+                                    <ul>
+                                        <li><strong>$37.00</strong></li>
+                                    </ul>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Dogs over 35 kg (selected breeds only):</strong></p>
+                                    <ul>
+                                        <li>$37.00.</li>
+                                    </ul>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Hydrobath</strong></p>
+                                    <p>$17.00 (Dogs who stay 7 days or longer, receive a FREE bath).</p>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Arrivals & Collections outside of business hours</strong></p>
+                                    <p>By arrangement only and will incur a $30.00 fee.</p>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Injectable Medication</strong></p>
+                                    <p>$2.00 per needle administered. Oral Meds - FREE.</p>
+                                    <p>&nbsp;</p>
+                                    <button
+                                        class="bg-[#fc3a8c] text-white rounded-[2px] border border-[3px] border-[#fc3a8c] h-[49px] min-w-[135px] font-bold text-[18px] transition-all hover:bg-transparent hover:text-[#fc3a8c]">BOOK
+                                        NOW</button>
+                                </aside>
+                            </div>
+                            <div id="catContent"
+                                class="tab-content layout-b bg-[#f5f5f5] p-[30px] gap-[20px] flex lg:flex-row flex-col hidden">
+                                <div class="md:w-[291px] md:h-[353px] w-full sm:h-[200px] h-[176px] cat_bg"></div>
+                                <aside class="tab-content">
+                                    <h1>Pats, Cuddles and Playtime are FREE!</h1>
+                                    <p>Costs from 1st November 2023</p>
+                                    <p>&nbsp;</p>
+                                    <p>$17.00.</p>
+                                    <p>&nbsp;</p>
+                                    <p>We offer outside time in our outdoor area to friendly cats at $3.00 per day.</p>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Arrivals & Collections outside of business hours</strong></p>
+                                    <p>By arrangement only and will incur a $30.00 fee.</p>
+                                    <p>&nbsp;</p>
+                                    <p><strong>Injectable Medication</strong></p>
+                                    <p>$2.00 per needle administered. Oral Meds - FREE.</p>
+                                    <p>&nbsp;</p>
+                                    <button
+                                        class="bg-[#fc3a8c] text-white rounded-[2px] border border-[3px] border-[#fc3a8c] h-[49px] min-w-[135px] font-bold text-[18px] transition-all hover:bg-transparent hover:text-[#fc3a8c]">BOOK
+                                        NOW</button>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- footer  -->
 
     <section class="bg-[#1d1e2c] py-[74px]  px-[15px]">
@@ -451,7 +550,29 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dogTab = document.getElementById('dogTab');
+            const catTab = document.getElementById('catTab');
+            const dogContent = document.getElementById('dogContent');
+            const catContent = document.getElementById('catContent');
 
+            dogTab.addEventListener('click', function () {
+                setActiveTab(dogTab, catTab, dogContent, catContent);
+            });
+
+            catTab.addEventListener('click', function () {
+                setActiveTab(catTab, dogTab, catContent, dogContent);
+            });
+
+            function setActiveTab(activeTab, inactiveTab, activeContent, inactiveContent) {
+                activeTab.classList.add('active');
+                inactiveTab.classList.remove('active');
+                activeContent.classList.remove('hidden');
+                inactiveContent.classList.add('hidden');
+            }
+        });
+    </script>
 
 
     <script>
