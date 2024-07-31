@@ -236,7 +236,7 @@
                         <p>
                             &nbsp;
                         </p>
-                        <div class="grid    grid-cols-3 gap-[10px] md:gap-[20px]">
+                        <div class="grid grid-cols-3 gap-[10px] md:gap-[20px]">
                             <div class="gallery">
                                 <img src="./assets/images/first.webp" class="max-w-full md:h-[350px] h-auto w-full"
                                     alt="">
@@ -273,8 +273,21 @@
                                 <img src="./assets/images/ninth.webp" class="max-w-full md:h-[350px] h-auto w-full"
                                     alt="">
                             </div>
-
                         </div>
+
+                        <div id="fullscreen" class="fullscreen">
+                            <button id="prev"
+                                class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl">
+                                <img src="./assets/images/Arrow-left.png" alt="">
+                            </button>
+                            <img id="fullscreen-img" src="" alt="">
+                            <button id="next"
+                                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl">
+                                <img src="./assets/images/Arrow-right.png" alt="">
+
+                            </button>
+                        </div>
+
                     </div>
 
 
@@ -328,7 +341,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Home
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all  duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -336,7 +349,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Facilites
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px]  h-[2px] bg-white transition-all w-full duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -344,7 +357,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Services
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -352,7 +365,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Reviews
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -360,7 +373,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Costs
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -368,7 +381,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Book
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li class="relative px-[15px] py-[10px] group">
@@ -376,7 +389,7 @@
                                     class="flex relative justify-start items-center  text-white text-[16px]  leading-[24px]">
                                     Contact
                                     <span
-                                        class="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        class="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                         </ul>
@@ -426,6 +439,40 @@
         });
     </script>
 
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+        const fullscreen = document.getElementById('fullscreen');
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+
+        function showFullscreen(index) {
+            fullscreenImg.src = images[index].src;
+            fullscreen.classList.add('show');
+            currentIndex = index;
+        }
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => showFullscreen(index));
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            fullscreenImg.src = images[currentIndex].src;
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            fullscreenImg.src = images[currentIndex].src;
+        });
+
+        fullscreen.addEventListener('click', (e) => {
+            if (e.target === fullscreen || e.target === fullscreenImg) {
+                fullscreen.classList.remove('show');
+            }
+        });
+    </script>
 
     <script>
         document.getElementById('layout-drawer-hamburger').addEventListener('click', function () {
